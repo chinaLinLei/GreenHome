@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: greenhome-manage-app
+  profiles:
+    active: ${GREENHOME_ENV:DEV}
+
