@@ -17,17 +17,12 @@
     </properties>
 
     <dependencies>
-        <!-- spring context -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- dao工程依赖 -->
         <dependency>
             <groupId>org.smart_joker</groupId>
             <artifactId>greenhome-dao</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
