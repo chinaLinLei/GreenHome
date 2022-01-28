@@ -1,9 +1,19 @@
-package com.greenhome.mapper;
+package com.greenhome.service.inter;
 
 import com.greenhome.common.entity.CitiesEntity;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
-public interface CitiesMapper {
+/**
+ * @Author smart_joker
+ * @Date 2022/1/28 2:58 下午
+ * @Description 城市服务
+ * @Version 1.0
+ */
+
+@Transactional
+public interface CitiesService {
     int deleteByPrimaryKey(String cityId);
 
     int insert(CitiesEntity record);

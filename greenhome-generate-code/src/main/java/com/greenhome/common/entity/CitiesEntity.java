@@ -1,4 +1,4 @@
-package com.greenhome.entity;
+package com.greenhome.common.entity;
 
 import java.util.Date;
 

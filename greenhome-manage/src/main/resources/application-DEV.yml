@@ -15,6 +15,11 @@ logging:
   level:
     com.spdb.apix: error
 
+mybatis:
+  mapper-path: /mapper/**.xml
+  package-path: com.greenhome.mapper
+  config-path: mybatis-config.xml
+
 spring:
   mvc:
     async:
@@ -32,3 +37,8 @@ spring:
     sentinel:
       master: mymaster
       nodes: 10.136.64.106:26380,10.136.64.107:26380,10.136.64.108:26380
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/GreenHome?useUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.jdbc.Driver

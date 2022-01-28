@@ -1,5 +1,7 @@
 package com.greenhome.common.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
 
 public class CitiesEntity {
@@ -11,6 +13,7 @@ public class CitiesEntity {
 
     private String agency;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date agencyDate;
 
     private String states;

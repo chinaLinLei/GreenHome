@@ -26,7 +26,7 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.greenhome.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.greenhome.common.entity" targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
