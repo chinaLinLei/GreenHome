@@ -57,6 +57,18 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- cluster redis-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- cluster redis:lettuce作为redis连接池管理-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+
         <!-- commons-lang3 -->
         <dependency>
             <groupId>org.apache.commons</groupId>
