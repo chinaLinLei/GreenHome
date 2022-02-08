@@ -25,18 +25,28 @@ spring:
     async:
       request-timeout: 60s
   redis:
+    #    host: 192.168.1.100
+    #    port: 6385
     timeout: 6000ms
-    password: apiBank@2020
+    password: apiBank@2021
+    database: 0
     lettuce:
       pool:
         max-active: 100
         max-wait: 6000
         max-idle: 100
-        min-idle: 50
+        min-idle: 1
+    cluster:
+      nodes:
+        #地址要和redis配置中bind地址一致
+        - 127.0.0.1:7000
+        - 127.0.0.1:7001
+        - 127.0.0.1:7002
     #sentinel哨兵配置
-    sentinel:
-      master: mymaster
-      nodes: 10.136.64.106:26380,10.136.64.107:26380,10.136.64.108:26380
+      #sentinel:
+      #master: mymaster
+      #nodes: 10.136.64.106:26380,10.136.64.107:26380,10.136.64.108:26380
+
   datasource:
     username: root
     password: 123456
