@@ -9,3 +9,6 @@ Master-slave replication
 
 # redis
 Slot cluster
+
+#env key-value
+GREENHOME_NETWORK_NAME: en0 

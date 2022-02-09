@@ -38,8 +38,7 @@
         </rollingPolicy>
         <!-- 线程设置 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} Line:%line ----------------> %msg%n
-            </pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{ip}] [manage] %msg%n</pattern>
             <!-- 设置字符集 -->
             <charset>UTF-8</charset>
         </encoder>
@@ -71,8 +70,7 @@
         </rollingPolicy>
         <!-- 线程设置 -->
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [manage] %msg%n
-            </pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%X{ip}] [manage] %msg%n</pattern>
             <!-- 设置字符集 -->
             <charset>UTF-8</charset>
         </encoder>
