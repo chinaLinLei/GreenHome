@@ -10,8 +10,8 @@ Master-slave replication
 # redis
 Slot cluster
 
-#env key-value
+# env key-value
 GREENHOME_NETWORK_NAME: en0 
 
-#swagger2 uri
+# swagger2 uri
 manage: http://localhost:8080/manage/swagger-ui.html
