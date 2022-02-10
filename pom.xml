@@ -55,6 +55,13 @@
         <c3p0.version>0.9.5.2</c3p0.version>
         <mybatis.boot.starter.version>1.3.1</mybatis.boot.starter.version>
         <mysql.connector.java.version>5.1.44</mysql.connector.java.version>
+        <jackson.annotations.version>2.10.1</jackson.annotations.version>
+        <netty.common.version>4.1.43.Final</netty.common.version>
+        <commons.pool2.version>2.7.0</commons.pool2.version>
+        <hutool.all.version>5.3.6</hutool.all.version>
+        <springfox.swagger2.version>2.9.2</springfox.swagger2.version>
+        <swagger-models.version>1.5.21</swagger-models.version>
+        <UserAgentUtils.version>1.21</UserAgentUtils.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -148,6 +155,73 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pageHelper.starter.version}</version>
+            </dependency>
+
+            <!--格式化时间等jackson-->
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.annotations.version}</version>
+            </dependency>
+
+            <!--netty-common-->
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-common</artifactId>
+                <version>${netty.common.version}</version>
+            </dependency>
+
+            <!-- cluster redis:lettuce作为redis连接池管理-->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-pool2</artifactId>
+                <version>${commons.pool2.version}</version>
+            </dependency>
+
+            <!--cn.hutool工具库-->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.all.version}</version>
+            </dependency>
+
+            <!-- swagger支持 -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger2.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-annotations</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.swagger</groupId>
+                        <artifactId>swagger-models</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger-models.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-models</artifactId>
+                <version>${swagger-models.version}</version>
+            </dependency>
+
+            <!--获取设备类型-->
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${UserAgentUtils.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
