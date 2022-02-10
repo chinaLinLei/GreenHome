@@ -2,6 +2,7 @@ package com.greenhome.common.constant;
 
 import io.netty.util.internal.StringUtil;
 
+import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -10,7 +11,7 @@ import java.util.Map;
  * @Description 环境变量信息（单例模式）
  * @Version 1.0
  */
-public class EnvInfo {
+public class EnvInfo implements Serializable {
     //网卡名称
     public static String NETWORK_NAME;
 

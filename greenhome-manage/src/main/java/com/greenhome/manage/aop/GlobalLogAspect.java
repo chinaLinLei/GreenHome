@@ -8,6 +8,7 @@ import com.greenhome.common.constant.Constant;
 import com.greenhome.common.constant.EnvInfo;
 import com.greenhome.common.log.LogSubject;
 import com.greenhome.manage.aop.util.HttpContextUtil;
+import io.netty.util.internal.StringUtil;
 import io.swagger.annotations.ApiOperation;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -45,7 +46,7 @@ import java.util.*;
 @Component
 public class GlobalLogAspect extends BaseAspectSupport {
     private final static Logger LOGGER = LoggerFactory.getLogger(GlobalLogAspect.class);
-    private static String ip = "";
+    public static String ip = StringUtil.EMPTY_STRING;
     static {
         try {
             ip = getLocalIP();
@@ -59,7 +60,6 @@ public class GlobalLogAspect extends BaseAspectSupport {
      */
     @Pointcut("execution(public * com.greenhome.manage.controller.*.*(..))")
     public void log() {
-
     }
 
     /**
@@ -142,7 +142,7 @@ public class GlobalLogAspect extends BaseAspectSupport {
     }
 
     public static String getLocalIP() throws Exception {
-        String ip = "";
+        String ip = StringUtil.EMPTY_STRING;
         if (System.getProperty(Constant.DefaultKey.KEY_OS_NAME).equalsIgnoreCase(Constant.OsType.WINDOWS)) {
             InetAddress adder = InetAddress.getLocalHost();
             ip = adder.getHostAddress();
@@ -167,6 +167,6 @@ public class GlobalLogAspect extends BaseAspectSupport {
                 }
             }
         }
-        return "";
+        return StringUtil.EMPTY_STRING;
     }
 }

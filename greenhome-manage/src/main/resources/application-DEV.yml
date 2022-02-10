@@ -63,3 +63,9 @@ swagger2:
   license: smart_joker~
   version: v1.0
   packageScan: com.greenhome.manage.controller
+
+pagehelper:
+  #分页pageHelper
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
