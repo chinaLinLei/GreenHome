@@ -1,5 +1,7 @@
 server:
   port: 8080
+  servlet:
+    context-path: /manage
   tomcat:
     max-threads: 500
     max-connections: 6000
@@ -53,6 +55,11 @@ spring:
     url: jdbc:mysql://localhost:3306/GreenHome?useUnicode=true&characterEncoding=utf-8&useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
 
-  project:
-    #不同环境值不一样的，如mac是en0，linux是eh0等，根据实际配置
-    network-name: en0
+swagger2:
+  #swagger的配置信息
+  title: GreenHome RESTful APIs
+  description: Bit by bit life, heart perception, green ocean, quiet and comfortable
+  termsOfServiceUrl: http://www.greenhome.com
+  license: smart_joker~
+  version: v1.0
+  packageScan: com.greenhome.manage.controller

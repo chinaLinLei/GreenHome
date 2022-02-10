@@ -13,13 +13,13 @@
     delete from tb_cities
     where city_id = #{cityId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="com.greenhome.common.entity.CitiesEntity">
+  <insert id="insert" parameterType="com.greenhome.common.entity.CitiesEntity" >
     <selectKey keyProperty="cityId" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into tb_cities (city, province_id, agency, 
+    insert into tb_cities (city_id,city, province_id, agency,
       agency_date, states)
-    values (#{city,jdbcType=VARCHAR}, #{provinceId,jdbcType=VARCHAR}, #{agency,jdbcType=VARCHAR}, 
+    values (#{cityId,jdbcType=VARCHAR},#{city,jdbcType=VARCHAR}, #{provinceId,jdbcType=VARCHAR}, #{agency,jdbcType=VARCHAR},
       #{agencyDate,jdbcType=TIMESTAMP}, #{states,jdbcType=VARCHAR})
   </insert>
   <update id="updateByPrimaryKey" parameterType="com.greenhome.common.entity.CitiesEntity">
