@@ -1,12 +1,14 @@
 package com.greenhome.common.constant;
 
+import java.io.Serializable;
+
 /**
  * @Author smart_joker
  * @Date 2022/2/9 1:46 下午
  * @Description 常量/数据字典
  * @Version 1.0
  */
-public class Constant {
+public class Constant implements Serializable {
 
     /**
      * 默认的key（如：ip，port）

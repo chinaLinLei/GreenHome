@@ -94,12 +94,6 @@
             <artifactId>tika-core</artifactId>
         </dependency>
 
-        <!-- 分页助手启动器 -->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-        </dependency>
-
         <!--cn.hutool工具库-->
         <dependency>
             <groupId>cn.hutool</groupId>

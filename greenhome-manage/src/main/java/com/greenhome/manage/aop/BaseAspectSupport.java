@@ -1,8 +1,9 @@
 package com.greenhome.manage.aop;
 
+import com.greenhome.common.base.DefinitionException;
+import com.greenhome.common.constant.GreenHomeEnum;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
-
 import java.lang.reflect.Method;
 
 /**
@@ -18,7 +19,7 @@ public class BaseAspectSupport {
         Method method = getDeclaredMethod(targetClass, signature.getName(),
                 signature.getMethod().getParameterTypes());
         if (method == null) {
-            throw new IllegalStateException("无法解析目标方法: " + signature.getMethod().getName());
+            throw new DefinitionException(GreenHomeEnum.INTERNAL_SERVER_ERROR);
         }
         return method;
     }

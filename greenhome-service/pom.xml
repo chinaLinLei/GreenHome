@@ -17,6 +17,11 @@
     </properties>
 
     <dependencies>
+        <!-- 分页助手启动器 -->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+        </dependency>
 
         <!-- dao工程依赖 -->
         <dependency>

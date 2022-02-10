@@ -1,5 +1,6 @@
 package com.greenhome.service.inter;
 
+import com.greenhome.common.base.PageResult;
 import com.greenhome.common.entity.CitiesEntity;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -23,4 +24,6 @@ public interface CitiesService {
     List<CitiesEntity> selectAll();
 
     int updateByPrimaryKey(CitiesEntity record);
+
+    PageResult<CitiesEntity> findAllUserByPages(int pageNum, int pageSize);
 }

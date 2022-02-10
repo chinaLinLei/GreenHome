@@ -1,12 +1,14 @@
 package com.greenhome.common.log;
 
+import java.io.Serializable;
+
 /**
  * @Author smart_joker
  * @Date 2022/2/8 5:48 下午
  * @Description 设备信息
  * @Version 1.0
  */
-public class DeviceInfo {
+public class DeviceInfo implements Serializable {
 
     //客户端类型  手机、电脑、平板
     private String clientType;

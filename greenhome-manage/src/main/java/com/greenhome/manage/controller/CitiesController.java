@@ -1,10 +1,10 @@
 package com.greenhome.manage.controller;
 
+import com.github.pagehelper.PageInfo;
+import com.greenhome.common.base.PageResult;
 import com.greenhome.common.entity.CitiesEntity;
 import com.greenhome.service.inter.CitiesService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -32,6 +32,8 @@ public class CitiesController {
     @ApiImplicitParam(name = "id", value = "城市ID主键", required = true, dataType = "String", paramType = "path")
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public CitiesEntity selectCity(@PathVariable(required = true) String id){
+        int a=0;
+        int b = 1/a;
         return citiesService.selectByPrimaryKey(id);
     }
 
@@ -40,5 +42,16 @@ public class CitiesController {
     public  int addCity(@RequestBody CitiesEntity entity){
         return citiesService.insert(entity);
     }
+
+    @ApiOperation(value="分页显示城市信息", notes="pageNum，从1开始（0是等于一的结果）")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNum", value = "第几页", required = true, dataType = "int", paramType = "query"),
+            @ApiImplicitParam(name = "pageSize", value = "每页数量", required = true, dataType = "int", paramType = "query")
+    })
+    @GetMapping("/query")
+    public PageResult<CitiesEntity> findAllUserByPages(int pageNum, int pageSize){
+        return citiesService.findAllUserByPages(pageNum,pageSize);
+    }
+
 
 }

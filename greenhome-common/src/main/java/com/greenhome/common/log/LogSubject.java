@@ -1,12 +1,14 @@
 package com.greenhome.common.log;
 
+import java.io.Serializable;
+
 /**
  * @Author smart_joker
  * @Date 2022/2/8 4:51 下午
  * @Description 全局日志记录
  * @Version 1.0
  */
-public class LogSubject {
+public class LogSubject implements Serializable {
     //请求的唯一标识
     private String sid;
     //操作描述

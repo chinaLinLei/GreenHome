@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
 
 @ApiModel(description = "城市实体类")
-public class CitiesEntity {
+public class CitiesEntity implements Serializable {
     @ApiModelProperty(value = "城市ID:对应城市的前4位")
     private String cityId;
 

@@ -1,5 +1,8 @@
 package com.greenhome.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.greenhome.common.base.PageResult;
 import com.greenhome.common.entity.CitiesEntity;
 import com.greenhome.mapper.CitiesMapper;
 import com.greenhome.service.inter.CitiesService;
@@ -44,5 +47,13 @@ public class CitiesServiceImpl  implements CitiesService {
     @Override
     public int updateByPrimaryKey(CitiesEntity record) {
         return citiesMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public PageResult<CitiesEntity> findAllUserByPages(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<CitiesEntity> lists = citiesMapper.selectAll();
+        PageInfo<CitiesEntity> pageInfo = new PageInfo<CitiesEntity>(lists);
+        return new PageResult<CitiesEntity>(pageInfo.getTotal(),pageInfo.getList());
     }
 }
