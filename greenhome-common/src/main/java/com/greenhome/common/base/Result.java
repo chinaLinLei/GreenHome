@@ -1,7 +1,8 @@
 package com.greenhome.common.base;
 
 import com.greenhome.common.constant.GreenHomeEnum;
-import io.netty.util.internal.ObjectUtil;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
@@ -11,17 +12,30 @@ import java.io.Serializable;
  * @Description 通用返回结果信息
  * @Version 1.0
  */
+
+@ApiModel(description = "通用返回结果类")
 public class Result<T> implements Serializable {
-    //请求唯一标识
+
+    @ApiModelProperty(value = "请求唯一标识")
     private String sid;
-    //状态码
+
+    @ApiModelProperty(value = "状态码")
     private Integer code;
-    //提示信息
+
+    @ApiModelProperty(value = "提示信息")
     private String msg;
-    //数据
+
+    @ApiModelProperty(value = "数据")
     private T data;
 
     public Result() {
+        this.code = GreenHomeEnum.SUCCESS.getErrorCode();
+        this.msg = GreenHomeEnum.SUCCESS.getErrorMsg();
+    }
+
+    public Result(T data) {
+        this();
+        this.data = data;
     }
 
     /**
@@ -50,6 +64,20 @@ public class Result<T> implements Serializable {
     }
 
     /**
+     * 自定义异常返回的结果
+     * @param code 状态码
+     * @param msg 提示信息
+     * @return
+     */
+    public static Result defineError(Integer code, String msg){
+        Result result = new Result();
+        result.setCode(code);
+        result.setMsg(msg);
+        result.setData(null);
+        return result;
+    }
+
+    /**
      * 其他异常处理方法返回的结果
      * @param greenHomeEnum 状态码数据字典
      * @return
@@ -61,6 +89,8 @@ public class Result<T> implements Serializable {
         result.setData(null);
         return result;
     }
+
+
 
     public String getSid() {
         return sid;

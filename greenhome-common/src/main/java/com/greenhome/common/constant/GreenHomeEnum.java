@@ -15,6 +15,7 @@ public enum GreenHomeEnum implements Serializable {
     NOT_FOUND(404, "未找到该资源!!!"),
     INTERNAL_SERVER_ERROR(500, "服务器异常!!!"),
     ILLEGAL_STATE_ERROR(202020, "无法解析目标方法!!!"),
+    ENUM_ERROR(202021, "处理枚举校验异常!!!"),
 
     ;
 

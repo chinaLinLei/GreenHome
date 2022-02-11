@@ -1,5 +1,8 @@
 package com.greenhome.common.base;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -9,11 +12,14 @@ import java.util.List;
  * @Description 分页返回结果集
  * @Version 1.0
  */
+
+@ApiModel(description = "分页结果集")
 public class PageResult<T> implements Serializable {
 
-    // 总页数
+    @ApiModelProperty(value = "总页数")
     private Long total;
-    // 记录
+
+    @ApiModelProperty(value = "结果记录")
     private List<T> rows;
 
     public PageResult() {
