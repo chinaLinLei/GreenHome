@@ -118,6 +118,7 @@ public class Constant implements Serializable {
      */
     public static class StringFormatType {
         public final static String LOG = "{}";
+        public final static String ENUM_ERROR = "枚举对象{}缺少字段名为value的字段";
     }
 
     /**

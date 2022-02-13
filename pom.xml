@@ -185,6 +185,13 @@
                 <version>${hutool.all.version}</version>
             </dependency>
 
+            <!-- 参数校验 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${org.springframework.session.version}</version>
+            </dependency>
+
             <!-- swagger支持 -->
             <dependency>
                 <groupId>io.springfox</groupId>
