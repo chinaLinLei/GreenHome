@@ -1,0 +1,23 @@
+apiVersion: apps/v1     #指定API版本标签
+kind: Deployment        #定义资源的类型/角色，deployment为控制器，service，endpoints
+metadata:               #定义资源的元数据信息
+  namespace: greenhome
+  name: syslog-ng        #定义资源的名称，在同一个namespace空间中必须是唯一的
+  labels:               #定义资源标签
+    app: syslog-ng
+spec:
+  replicas: 2           #定义副本数量
+  selector:             #定义选择器
+    matchLabels:        #匹配上边的标签
+      app: syslog-ng        #定义模板名称
+  template:             #定义模板
+    metadata:
+      labels:
+        app: syslog-ng
+    spec:
+      containers:               #定义容器信息
+        - name: syslog-ng            #容器名，与标签名要相同
+          image: smartjoker/syslogng:2021.0609.1350 #容器使用的镜像以及版本
+          command: [ "/bin/bash", "-ce", "tail -f /dev/null" ]
+          ports:
+            - containerPort: 12001     #定义容器的对外接口

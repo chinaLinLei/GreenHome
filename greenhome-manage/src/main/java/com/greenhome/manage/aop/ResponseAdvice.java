@@ -1,5 +1,6 @@
 package com.greenhome.manage.aop;
 
+import com.google.gson.Gson;
 import com.greenhome.common.base.Result;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -15,7 +16,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
  * @Version 1.0
  */
 
-@RestControllerAdvice(basePackages = "com.greenhome")
+@RestControllerAdvice(basePackages = "com.greenhome.manage.controller")
 public class ResponseAdvice implements ResponseBodyAdvice {
     @Override
     public boolean supports(MethodParameter methodParameter, Class aClass) {
@@ -23,10 +24,11 @@ public class ResponseAdvice implements ResponseBodyAdvice {
     }
 
     @Override
-    public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+    public Result beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
+
         if(o instanceof Result){
-            return o;
+            return (Result)o;
         }
-        return  new Result(o);
+        return new Result(o);
     }
 }

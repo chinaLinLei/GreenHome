@@ -131,4 +131,12 @@ public class Constant implements Serializable {
         public final static String POST = "POST";
     }
 
+    /**
+     *  http or https
+     */
+    public static class SchemeType {
+        public static final String HTTP_SCHEME = "http";
+        public static final String HTTPS_SCHEME = "https";
+    }
+
 }

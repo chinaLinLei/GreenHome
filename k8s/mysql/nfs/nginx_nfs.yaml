@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1     #指定API版本标签
+kind: Deployment        #定义资源的类型/角色，deployment为控制器，service，endpoints
+metadata:
+  name: nginx
+  namespace: greenhome
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: my-container
+          image: nginx
+          volumeMounts:
+            - mountPath: "/usr/share/nginx/html/"
+              name: testpv
+          ports:
+            - containerPort: 80
+      volumes:
+        - name: testpv
+          persistentVolumeClaim:
+            claimName: testpvc

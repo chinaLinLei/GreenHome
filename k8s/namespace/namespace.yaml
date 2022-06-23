@@ -1,0 +1,8 @@
+kind: Namespace  #类型为Namespace
+apiVersion: v1 #类型为Namespace
+metadata:
+  name: greenhome  #命名空间名称
+  labels:
+    name: greenhome
+
+# 设置默认命名空间 kubectl config set-context --current --namespace=greenhome

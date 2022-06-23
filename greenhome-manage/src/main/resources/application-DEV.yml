@@ -64,6 +64,10 @@ swagger2:
   version: v1.0
   packageScan: com.greenhome.manage.controller
 
+elasticsearch:
+  #elasticsearch 配置信息
+  ip: 127.0.0.1:9200,127.0.0.2:9200
+
 pagehelper:
   #分页pageHelper
   helper-dialect: mysql

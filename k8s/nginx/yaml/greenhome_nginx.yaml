@@ -1,0 +1,22 @@
+apiVersion: apps/v1     #指定API版本标签
+kind: Deployment        #定义资源的类型/角色，deployment为控制器，service，endpoints
+metadata:               #定义资源的元数据信息
+  namespace: greenhome
+  name: nginx        #定义资源的名称，在同一个namespace空间中必须是唯一的
+  labels:               #定义资源标签
+    app: nginx
+spec:
+  replicas: 2           #定义副本数量
+  selector:             #定义选择器
+    matchLabels:        #匹配上边的标签
+      app: nginx        #定义模板名称
+  template:             #定义模板
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:               #定义容器信息
+        - name: nginx            #容器名，与标签名要相同
+          image: smartjoker/nginx:2021.0521.1334 #容器使用的镜像以及版本
+          ports:
+            - containerPort: 80     #定义容器的对外接口

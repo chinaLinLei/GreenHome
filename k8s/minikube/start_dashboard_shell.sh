@@ -1,0 +1,2 @@
+
+nohup minikube dashboard &
