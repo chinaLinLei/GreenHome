@@ -1,0 +1,36 @@
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: testpv
+  namespace: greenhome
+  labels:
+    pv: testpv
+spec:
+  storageClassName: standard
+  volumeMode: Filesystem
+  capacity:
+    storage: 2Gi
+  accessModes: ["ReadWriteOnce"]
+  persistentVolumeReclaimPolicy: Recycle
+  nfs:
+    path: /smart_joker/nfs_data/mysql/
+    server: 192.168.49.2 #172.17.16.5 ｜192.168.49.2
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: testpvc
+  namespace: greenhome
+spec:
+  storageClassName: standard
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 100Mi
+  selector:
+    matchLabels:
+      pv: testpv
+
+
