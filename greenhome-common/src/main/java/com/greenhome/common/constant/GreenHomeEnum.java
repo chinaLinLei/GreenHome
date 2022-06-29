@@ -17,7 +17,7 @@ public enum GreenHomeEnum implements Serializable {
     ILLEGAL_STATE_ERROR(202020, "无法解析目标方法!!!"),
     ENUM_ERROR(202021, "处理枚举校验异常!!!"),
     ELASTICSEARCH_ERROR(202022, "elasticsearch操作失败!!!"),
-
+    REQUEST_FILTER(202023, "this request uri is filtered!!!"),
     ;
 
     /** 错误码 */
