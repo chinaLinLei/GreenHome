@@ -1,8 +1,14 @@
 package com.greenhome.manage.config;
 
+import com.greenhome.manage.aop.filter.CommonFilter;
 import com.greenhome.manage.aop.interceptor.CommonInterceptor;
+import com.greenhome.manage.aop.listener.CommonHttpSessionListener;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
+import org.springframework.boot.web.servlet.ServletListenerRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.FormatterRegistry;
+import org.springframework.format.datetime.DateFormatter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
@@ -32,6 +38,30 @@ public class WebConfiguration  implements WebMvcConfigurer {
     CommonInterceptor getCommonInterceptor(){
         return  new CommonInterceptor();
     }
+
+    /**
+     * 注册过滤器
+     * @return
+     */
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean(){
+        FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
+        filterRegistration.setFilter(new CommonFilter());
+        filterRegistration.addUrlPatterns("/*");
+        return filterRegistration;
+    }
+
+    /**
+     * 注册监听器
+     * @return
+     */
+    @Bean
+    public ServletListenerRegistrationBean registrationBean(){
+        ServletListenerRegistrationBean registrationBean = new ServletListenerRegistrationBean();
+        registrationBean.setListener(new CommonHttpSessionListener());
+        return registrationBean;
+    }
+
 
     /**
      * 重写addInterceptors()实现拦截器
@@ -95,5 +125,12 @@ public class WebConfiguration  implements WebMvcConfigurer {
        converters.add(0, new MappingJackson2HttpMessageConverter());
         // 第二种就是把String类型的转换器去掉，不使用String类型的转换器
         //converters.removeIf(httpMessageConverter -> httpMessageConverter.getClass() == StringHttpMessageConverter.class);
+    }
+
+    //格式化 日期
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        //注册一个格式转换器
+        registry.addFormatter(new DateFormatter("yyyy-MM-dd HH:mm:ss"));
     }
 }

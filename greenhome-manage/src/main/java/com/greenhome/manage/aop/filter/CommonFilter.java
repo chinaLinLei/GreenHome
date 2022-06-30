@@ -20,7 +20,6 @@ import java.io.PrintWriter;
  * 常见场景如session校验、url校验，若不符合条件，则会被过滤掉做出特殊的响应。
  * @Version 1.0
  */
-@WebFilter(urlPatterns = "/*",filterName = "CommonFilter")
 @Order(1) // filter顺序 越小越在前
 public class CommonFilter implements Filter {
 
